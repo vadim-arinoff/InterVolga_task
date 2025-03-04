@@ -12,6 +12,16 @@ $data = [
     $scores = [];
 
     foreach ($data as $value) {
+        if(
+            !is_array($value) ||
+            count($value) !=3 ||
+            !is_string($value[0]) ||
+            !is_string($value[1]) ||
+            !is_numeric($value[2])
+        ) {
+            error_log("Invalid data: " . print_r($value, true));
+            continue;
+        }
         $key = "{$value[0]}_{$value[1]}";
         $scores [$key]['student'] = $value[0];
         $scores [$key]['subject'] = $value[1];
