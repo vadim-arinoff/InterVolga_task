@@ -1,6 +1,6 @@
 <?php
 
-require '/../config/database.php'; // лучше хранить конфиг подключения к БД за пределами проекта public в OSP, пока тут
+require __DIR__ . '/../config/database.php'; // лучше хранить конфиг подключения к БД за пределами проекта public в OSP, пока тут
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $username = htmlspecialchars($_POST['username']);
         $email = htmlspecialchars(trim($_POST['email']));
