@@ -13,7 +13,7 @@ $text = <<<TXT
 TXT;
 
 function textProcessing($text, $wordlimit){
-	$words = explode (" ", (strip_tags($text)));
+	$words = preg_split('/\s+/', (strip_tags($text)));
 	if (count($words) > $wordlimit) {
 		$words = array_slice($words, 0,  $wordlimit);
 		return implode(" ", $words) . "...";
